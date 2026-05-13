@@ -50,7 +50,7 @@ chmod 644 /home/ec2-user/webapp/config/app.conf
 
 ### Permission Explanation
 
-**r**ead - 4 | **w**rite - 2 | e**x**ecute - 1
+**Read - 4 | Write - 2 | eXecute - 1**
 
 The command `chmod 755 /home/ec2-user/webapp/scripts` gives the **owner** full permissions (read, write, and execute) on the `scripts` directory, while the **group members and others** are allowed only to read and execute the directory contents. This permission is commonly used for directories and executable scripts.
 
@@ -68,6 +68,10 @@ ls -lR /home/ec2-user/webapp/
 ```
 ## Output
 
+ <img width="771" height="607" alt="Op1" src="https://github.com/user-attachments/assets/a25f5704-1e53-420a-b671-6581d5452055" />
+<img width="777" height="377" alt="op1 1" src="https://github.com/user-attachments/assets/1f08c7bf-3342-4aa7-863b-56b0111fb707" />
+
+---
 
 ## Question 2: Write an Interactive Log Script
 ### Objective: Using the webapp/ structure from Question 1, write a bash script that takes user input, reads a config file, and writes timestamped log entries. The log entries you create here will be the input for Question 3.
@@ -102,6 +106,11 @@ chmod +x log_user.sh
 cat /home/ec2-user/webapp/logs/app.log
 ```
 ## Output
+
+<img width="778" height="527" alt="op2_bash" src="https://github.com/user-attachments/assets/840c55df-6f62-4f41-a6a3-7071061584eb" />
+<img width="768" height="492" alt="OP2 1" src="https://github.com/user-attachments/assets/7fa544e8-f473-433a-81ad-19bec34e0ac6" />
+
+---
 
 ## Question 3: User Management and File Permission Control
 ### Objective: Create 4 Linux users. Two of them must have write access to the log_user.sh script created in Question 2, and the other two must have read-only access. Use Linux groups and chmod to control this.
@@ -154,6 +163,12 @@ echo 'test' >> /home/ec2-user/webapp/scripts/log_user.sh
 ```
 
 ## Output
+
+<img width="777" height="522" alt="OP3" src="https://github.com/user-attachments/assets/f7e1fc78-285a-49bf-8e7a-37c9f8ca4ba8" />
+<img width="778" height="328" alt="Op3 1" src="https://github.com/user-attachments/assets/1a10945f-4a05-4fb9-bde6-e498abd4e1cb" />
+
+---
+
 
 
 
