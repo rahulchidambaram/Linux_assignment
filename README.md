@@ -1,4 +1,25 @@
+# Linux Administration & Bash Scripting Assignment
 
+A hands-on DevOps practice repository covering Linux administration, Bash scripting, file permissions, user management, and networking fundamentals.
+
+---
+
+# 📂 Project Structure
+
+```bash
+/home/ec2-user/webapp/
+│
+├── scripts/
+│   └── log_user.sh
+│
+├── logs/
+│   └── app.log
+│
+└── config/
+    └── app.conf
+```
+
+---
 
  ## Question 1: Set Up Your DevOps Project Structure
  ### Objective: Create a complete project directory from scratch, apply correct permissions, and set ownership. The structure you build here will be used directly by your script in Question 2.
@@ -26,6 +47,14 @@ ls -l /home/ec2-user/webapp/logs/app.log
 chmod 755 /home/ec2-user/webapp/scripts
 chmod 644 /home/ec2-user/webapp/config/app.conf
 ```
+
+### Permission Explanation
+
+**r**ead - 4 | **w**rite - 2 | e**x**ecute - 1
+
+The command `chmod 755 /home/ec2-user/webapp/scripts` gives the **owner** full permissions (read, write, and execute) on the `scripts` directory, while the **group members and others** are allowed only to read and execute the directory contents. This permission is commonly used for directories and executable scripts.
+
+The command `chmod 644 config/app.conf` gives the **owner** read and write permissions on the `app.conf` file, while the **group members and others** are given read-only access. This is commonly used for configuration and text files where modification should only be allowed by the owner.
 
 🔸Change ownership recursively: sudo chown -R root:root /home/ec2-user/webapp/
 ```
@@ -77,10 +106,12 @@ cat /home/ec2-user/webapp/logs/app.log
 ## Question 3: User Management and File Permission Control
 ### Objective: Create 4 Linux users. Two of them must have write access to the log_user.sh script created in Question 2, and the other two must have read-only access. Use Linux groups and chmod to control this.
 
+🔸Create a group called writers:
 ```
 sudo groupadd writers
 ```
 
+🔸Create 4 users with home directories:
 ```
 sudo useradd -m devuser1
 sudo useradd -m devuser2
@@ -88,17 +119,28 @@ sudo useradd -m devuser3
 sudo useradd -m devuser4
 ```
 
+🔸Add the two write-access users to the writers group:
 ```
 sudo usermod -aG writers devuser1
 sudo usermod -aG writers devuser2
 ```
 
+🔸Change the group ownership of log_user.sh to writers: 
 ```
 sudo chown root:writers /home/ec2-user/webapp/scripts/log_user.sh
+```
+
+🔸Set permissions to 664 so writers group gets rw and others get r only: 
+```
 sudo chmod 664 /home/ec2-user/webapp/scripts/log_user.sh
+```
+
+🔸Verify the permission output shows: -rw-rw-r--  root  writers  log_user.sh
+```
 ls -l /home/ec2-user/webapp/scripts/log_user.sh
 ```
 
+🔸Switch to each user and test access to confirm it is working correctly:
 
 ```
 su - devuser1
@@ -110,3 +152,10 @@ cat /home/ec2-user/webapp/scripts/log_user.sh
 # Attempt write access
 echo 'test' >> /home/ec2-user/webapp/scripts/log_user.sh
 ```
+
+## Output
+
+
+
+
+
