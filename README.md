@@ -1,6 +1,6 @@
 # Linux Administration & Bash Scripting Assignment
 
-A hands-on DevOps practice repository covering Linux administration, Bash scripting, file permissions, user management, and networking fundamentals.
+A hands-on DevOps practice repository covering Linux administration, Bash scripting, file permissions, and user management.
 
 ---
 
@@ -19,6 +19,12 @@ A hands-on DevOps practice repository covering Linux administration, Bash script
     └── app.conf
 ```
 
+---
+## Pre-requisite:
+* Open CMD as admin
+* Install WSL `wsl --install`
+* Verify using `wsl --status`
+*  Hit `wsl` to start Ubunutu
 ---
 
  ## Question 1: Set Up Your DevOps Project Structure
