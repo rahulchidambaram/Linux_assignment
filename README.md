@@ -24,7 +24,7 @@ A hands-on DevOps practice repository covering Linux administration, Bash script
 * Open CMD as admin
 * Install WSL `wsl --install`
 * Verify using `wsl --status`
-*  Hit `wsl` to start Ubunutu
+*  Hit `wsl` to start Ubuntu
 ---
 
  ## Question 1: Set Up Your DevOps Project Structure
